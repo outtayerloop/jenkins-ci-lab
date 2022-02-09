@@ -2,12 +2,15 @@
 
 const express = require('express')
 const session = require('express-session')
+const cors = require('cors')
 
 
 const app = express()
 
-const PORT = 3000
+const PORT = 5000
 const HOST = `0.0.0.0`
+
+app.use(cors())
 
 app.use(
     session({
