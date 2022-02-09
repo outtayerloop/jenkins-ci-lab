@@ -19,12 +19,7 @@ app.use(
         secret: 'secret string',
         resave: true,
         saveUninitialized: true,
-        cookie: {
-            httpOnly: true,
-            maxAge: 360000,
-            domain: 'localhost',
-            sameSite: 'lax'
-        },
+        cookie: {},
         pageCountByCurrentUserOrAnyNameYouWant: 0
     })
 )
