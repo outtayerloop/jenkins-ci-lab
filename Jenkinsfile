@@ -9,7 +9,7 @@ pipeline {
 		}
 		stage('Build') {
 			steps {
-				bat 'cd back && npm i && npm test && cd ..'
+				bat 'cd back && npm i && npm start && npm test && cd ..'
 				bat 'docker-compose up'
 			}
 		}
