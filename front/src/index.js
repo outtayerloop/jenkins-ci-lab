@@ -20,10 +20,5 @@ reportWebVitals();
 axios.get(`http://localhost:5000/`)
     .then(res => {
       document.getElementById(`page-count`).innerText = res.data.pageCount
-      let i = 0
-      while(window.sessionStorage.key(i) !== undefined){
-        console.log(window.sessionStorage.key(i))
-        ++i
-      }
     })
     .catch(err => console.log(err))
