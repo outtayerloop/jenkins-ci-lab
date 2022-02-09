@@ -6,10 +6,10 @@ pipeline {
             steps {
                 git([url:'https://github.com/wiwiii/jenkins-ci-lab.git', branch:'dev'])
             }
-        } 
+        }
         stage('Build') {
             steps {
-                bat 'docker-compose up'
+                bat 'echo banane'
             }
         }
     }
