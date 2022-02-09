@@ -11,6 +11,7 @@ pipeline {
 			steps {
 				bat 'cd back && npm i && npm test && cd ..'
 				bat 'docker-compose up'
+				bat 'git push origin release'
 			}
 		}
     }
