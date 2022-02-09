@@ -3,14 +3,14 @@ pipeline {
 
     stages {
         stage('Pull') {
-            steps {
-                git([url:'https://github.com/wiwiii/jenkins-ci-lab.git', branch:'dev'])
-            }
-        }
-        stage('Build') {
-            steps {
-                bat 'echo banane'
-            }
-        }
+			steps {
+				git([url:'https://github.com/wiwiii/jenkins-ci-lab/', branch:'master'])
+			}
+		}
+		stage('Build') {
+			steps {
+				bat 'docker-compose up'
+			}
+		}
     }
 }
