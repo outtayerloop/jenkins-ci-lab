@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Pull') {
 			steps {
-				git([url:'https://github.com/wiwiii/jenkins-ci-lab', branch:'dev'])
+				git([url:'https://github.com/wiwiii/jenkins-ci-lab.git', branch:'dev'])
 			}
 		}
 		stage('Build') {
