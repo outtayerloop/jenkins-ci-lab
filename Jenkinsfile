@@ -9,6 +9,8 @@ pipeline {
 		}
 		stage('Build') {
 			steps {
+				bat 'cd back && npm test'
+				bat 'cd ..'
 				bat 'docker-compose up'
 			}
 		}
