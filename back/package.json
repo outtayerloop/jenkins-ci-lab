@@ -1,0 +1,24 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "back-end application for jenkins CI lab",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wiwiii/jenkins-ci-lab.git"
+  },
+  "author": "Wiem CHOUCHANE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wiwiii/jenkins-ci-lab/issues"
+  },
+  "homepage": "https://github.com/wiwiii/jenkins-ci-lab#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-session": "^1.17.2"
+  }
+}
