@@ -17,10 +17,7 @@ app.use(
         secret: 'secret string',
         resave: false,
         saveUninitialized: false,
-        cookie: {
-            expires: new Date(1586323351000),
-            maxAge:31536000000
-        },
+        cookie: {},
         pageCountByCurrentUserOrAnyNameYouWant: 0
     })
 )
