@@ -7,7 +7,7 @@ const session = require('express-session')
 const app = express()
 
 const PORT = 3000
-const HOST = `localhost`
+const HOST = `0.0.0.0`
 
 app.use(
     session({
