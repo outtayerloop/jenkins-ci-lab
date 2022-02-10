@@ -8,9 +8,6 @@ pipeline {
             }
         }
         stage('Pull') {
-			when {
-				env.BRANCH == 'develop'
-			}
 			steps {
 				git([url:'https://github.com/wiwiii/jenkins-ci-lab/', branch:'develop', credentialsId: 'jenkins-ci-lab-deploy-key'])
 			}
