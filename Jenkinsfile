@@ -19,8 +19,7 @@ pipeline {
 		}
 		stage('Stop Docker containers'){
 			steps{
-				bat 'docker-compose kill front'
-				bat 'docker-compose kill back'
+				bat 'docker-compose down --remove-orphans --rmi all'
 			}
 		}
 		stage('Remove stopped Docker containers'){
@@ -40,7 +39,7 @@ pipeline {
 		}
 		stage('Deploy Docker containers'){
 			steps {
-				bat 'docker-compose up --remove-orphans --attach-dependencies'
+				bat 'docker-compose up --remove-orphans --build'
 			}
 		}
     }
