@@ -35,11 +35,7 @@ pipeline {
     }
 	post{
 		always{
-			stage('Remove Docker containers'){
-				steps{
-					bat 'docker-compose down --rmi "all" -v --remove-orphans'
-				}
-			}
+			bat 'docker-compose down --rmi "all" -v --remove-orphans'
 		}
 	}
 }
