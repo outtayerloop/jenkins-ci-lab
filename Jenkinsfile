@@ -19,7 +19,12 @@ pipeline {
 		}
 		stage('Stop Docker containers'){
 			steps{
-				bat 'docker-compose down --remove-orphans --rmi all'
+				bat 'docker-compose kill'
+			}
+		}
+		stage('Remove stopped Docker containers'){
+			steps{
+				bat 'docker-compose rm'
 			}
 		}
 		stage('Update Back-end Docker image to latest'){
