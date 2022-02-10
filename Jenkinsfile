@@ -19,7 +19,8 @@ pipeline {
 		}
 		stage('Stop Docker containers'){
 			steps{
-				bat 'docker-compose kill'
+				bat 'docker-compose kill front'
+				bat 'docker-compose kill back'
 			}
 		}
 		stage('Remove stopped Docker containers'){
