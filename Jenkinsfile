@@ -33,4 +33,9 @@ pipeline {
 			}
 		}
     }
+	post{
+		always{
+			bat 'docker-compose down --rmi "all" -v --remove-orphans'
+		}
+	}
 }
