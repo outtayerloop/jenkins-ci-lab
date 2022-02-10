@@ -17,24 +17,13 @@ pipeline {
 				bat 'cd back && npm i && npm test && cd ..'
 			}
 		}
-		stage('Remove Docker containers'){
-			steps {
-				bat 'docker rm -f $(docker ps -a -q)'
-			}
-		}
-		stage('Remove Docker containers'){
-			steps {
-				bat 'docker rm -f jenkins-ci-lab-back-container'
-				bat 'docker rm -f jenkins-ci-lab-front-container'
-			}
-		}
 		stage('Remove Front-end Docker container'){
 			steps{
 				bat 'docker stop -f jenkins-ci-lab-front-container'
 				bat 'docker rm -f jenkins-ci-lab-front-container'
 			}
 		}
-		stage('Remove Back-end Docker containers'){
+		stage('Remove Back-end Docker container'){
 			steps {
 				bat 'docker stop -f jenkins-ci-lab-back-container'
 				bat 'docker rm -f jenkins-ci-lab-back-container'
@@ -50,13 +39,13 @@ pipeline {
 				bat 'docker image rm jenkins-ci-lab-back-image'
 			}
 		}
-		stage('Build') {
+		stage('Build Docker images') {
 			steps {
 				bat 'docker build -t "jenkins-ci-lab-back-image" ./back'
 				bat 'docker build -t "jenkins-ci-lab-front-image" ./front'
 			}
 		}
-		stage('Deploy'){
+		stage('Deploy Docker containers'){
 			steps {
 				bat 'docker-compose up'
 			}
