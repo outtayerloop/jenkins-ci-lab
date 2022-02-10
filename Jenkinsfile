@@ -7,6 +7,13 @@ pipeline {
                 cleanWs()
             }
         }
+		stage('Remove all existing pipelines'){
+			steps{
+				for (build in job.builds) {
+					build.doStop();
+				}
+			}
+		}
         stage('Pull') {
 			steps {
 				git([url:'https://github.com/wiwiii/jenkins-ci-lab/', branch:'develop', credentialsId: 'jenkins-ci-lab-deploy-key'])
