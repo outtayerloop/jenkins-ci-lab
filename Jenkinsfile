@@ -19,7 +19,7 @@ pipeline {
 		}
 		stage('Remove Docker containers'){
 			steps{
-				bat 'docker-compose rm -v -s'
+				bat 'docker-compose down --rmi "all" -v --remove-orphans'
 			}
 		}
 		stage('Update Back-end Docker image to latest'){
