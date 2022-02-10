@@ -17,14 +17,9 @@ pipeline {
 				bat 'cd back && npm i && npm test && cd ..'
 			}
 		}
-		stage('Stop Docker containers'){
+		stage('Remove Docker containers'){
 			steps{
-				bat 'docker-compose down --remove-orphans --rmi all'
-			}
-		}
-		stage('Remove stopped Docker containers'){
-			steps{
-				bat 'docker-compose rm'
+				bat 'docker-compose rm -v -s'
 			}
 		}
 		stage('Update Back-end Docker image to latest'){
