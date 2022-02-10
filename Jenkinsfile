@@ -34,7 +34,7 @@ pipeline {
 		}
 		stage('Deploy Docker containers'){
 			steps {
-				bat 'docker-compose up'
+				bat 'docker-compose up --remove-orphans --attach-dependencies'
 			}
 		}
     }
