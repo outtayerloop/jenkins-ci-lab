@@ -22,11 +22,6 @@ pipeline {
 				bat 'docker-compose down'
 			}
 		}
-		stage('Remove Docker containers'){
-			steps{
-				bat 'docker rm -f $(docker ps -a -q)'
-			}
-		}
 		stage('Update Back-end Docker image to latest'){
 			steps {
 				bat 'docker-compose pull back'
