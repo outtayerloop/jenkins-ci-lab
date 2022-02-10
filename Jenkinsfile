@@ -32,10 +32,10 @@ pipeline {
 				bat 'docker-compose up --remove-orphans --build'
 			}
 		}
-    }
-	post{
-		always{
-			bat 'docker-compose down --rmi "all" -v --remove-orphans'
+		stage('Clean everything'){
+			steps {
+				bat 'docker-compose down --rmi "all" -v --remove-orphans'
+			}
 		}
-	}
+    }
 }
