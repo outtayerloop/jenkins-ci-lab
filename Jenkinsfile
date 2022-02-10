@@ -13,33 +13,21 @@ pipeline {
 			}
 		}
 		stage('Run integration test'){
-			when {
-				env.BRANCH == 'develop'
-			}
 			steps {
 				bat 'cd back && npm i && npm test && cd ..'
 			}
 		}
 		stage('Update Back-end Docker image to latest'){
-			when {
-				env.BRANCH == 'develop'
-			}
 			steps {
 				bat 'docker-compose pull back'
 			}
 		}
 		stage('Update Front-end Docker image to latest'){
-			when {
-				env.BRANCH == 'develop'
-			}
 			steps {
 				bat 'docker-compose pull front'
 			}
 		}
 		stage('Deploy services'){
-			when {
-				env.BRANCH == 'develop'
-			}
 			steps {
 				bat 'docker-compose up --remove-orphans --build --no-start'
 			}
