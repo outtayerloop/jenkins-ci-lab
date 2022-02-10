@@ -27,14 +27,9 @@ pipeline {
 				bat 'docker-compose pull front'
 			}
 		}
-		stage('Deploy Docker containers'){
+		stage('Deploy services'){
 			steps {
-				bat 'docker-compose up --remove-orphans --build &'
-			}
-		}
-		stage('Clean everything'){
-			steps {
-				bat 'docker-compose down --rmi "all" -v --remove-orphans'
+				bat 'docker-compose up --remove-orphans --build --no-start'
 			}
 		}
     }
