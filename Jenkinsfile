@@ -29,7 +29,7 @@ pipeline {
 		}
 		stage('Deploy Docker containers'){
 			steps {
-				bat 'docker-compose up --remove-orphans --build'
+				bat 'docker-compose up --remove-orphans --build &'
 			}
 		}
 		stage('Clean everything'){
