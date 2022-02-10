@@ -14,7 +14,7 @@ pipeline {
 				bat 'docker build -t "jenkins-ci-lab-front" ./front'
 				bat 'docker image rm jenkins-ci-lab-front'
 				bat 'docker image rm jenkins-ci-lab-back'
-				bat 'git push origin release'
+				bat 'git push --set-upstream origin release'
 				bat 'docker-compose up'
 			}
 		}
