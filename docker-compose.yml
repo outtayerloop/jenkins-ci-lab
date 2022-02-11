@@ -1,11 +1,13 @@
 services:
     back:
-        build: ./back
-        container_name: jenkins-ci-lab-back-container
-        ports:
-            - "5000:5000"
+        build:
+            context: ./back
+            container_name: jenkins-ci-lab-back-container
+            ports:
+                - "5000:5000"
     front:
-        build: ./front
-        container_name: jenkins-ci-lab-front-container
-        ports:
-            - "3000:3000"
+        build:
+            context: ./front
+            container_name: jenkins-ci-lab-front-container
+            ports:
+                - "3000:3000"
