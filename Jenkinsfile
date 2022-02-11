@@ -14,28 +14,28 @@ pipeline {
 		}
 		stage('Run integration test'){
 			steps {
-				sh 'cd back && npm i && npm test && cd ..'
+				bat 'cd back && npm i && npm test && cd ..'
 			}
 		}
 		stage('Update Back-end Docker image to latest'){
 			steps {
-				sh 'docker-compose pull back'
+				bat 'docker-compose pull back'
 			}
 		}
 		stage('Update Front-end Docker image to latest'){
 			steps {
-				sh 'docker-compose pull front'
+				bat 'docker-compose pull front'
 			}
 		}
 		stage('Deploy services'){
 			steps {
-				sh 'docker-compose up --remove-orphans --build --no-start'
+				bat 'docker-compose up --remove-orphans --build --no-start'
 			}
 		}
     }
 	post{
 		always{
-			sh 'docker-compose down --rmi "all" -v --remove-orphans'
+			bat 'docker-compose down --rmi "all" -v --remove-orphans'
 		}
 	}
 }
