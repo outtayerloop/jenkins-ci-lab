@@ -26,7 +26,7 @@ pipeline {
 			steps {
 				bat 'git checkout release'
 				bat 'git merge develop'
-				sshagent(credentials: ['jenkins-ci-lab-deploy-key']) {
+				withCredentials([usernamePassword(credentialsId: 'jenkins-ci-lab-credentials')]) {
 					bat 'git push origin release'
 				}
 			}
