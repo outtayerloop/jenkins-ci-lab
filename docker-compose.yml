@@ -2,10 +2,12 @@ services:
     back:
         build: ./back
         container_name: jenkins-ci-lab-back-container
+        image: jenkins-ci-lab-back-image
         ports:
             - "5000:5000"
     front:
         build: ./front
         container_name: jenkins-ci-lab-front-container
+        image: jenkins-ci-lab-front-image
         ports:
             - "3000:3000"
