@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+	agent any
 
     stages {
 		stage('Clean Jenkins Workspace before starting'){
@@ -29,7 +29,7 @@ pipeline {
 		}
 		stage('Deploy services'){
 			steps {
-				bat 'docker-compose up --remove-orphans --build --no-start'
+				bat 'docker-compose up --remove-orphans --no-start'
 			}
 		}
     }
