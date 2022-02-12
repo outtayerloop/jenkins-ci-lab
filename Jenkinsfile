@@ -22,6 +22,11 @@ pipeline {
 				bat 'docker-compose up --remove-orphans --build --no-start'
 			}
 		}
+		stage('Push to release'){
+			steps {
+				bat 'git branch release & git push origin release'
+			}
+		}
     }
 	post{
 		always{
