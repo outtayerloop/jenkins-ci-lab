@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Pull') {
 			steps {
-				git([url:'https://github.com/wiwiii/jenkins-ci-lab/', branch:'develop', credentialsId: 'jenkins-ci-lab-deploy-key'])
+				git([url:'https://github.com/wiwiii/jenkins-ci-lab/', branch:'develop'])
 			}
 		}
 		stage('Run integration test'){
@@ -25,7 +25,7 @@ pipeline {
 		stage('Push to release'){
 			steps {
 				bat 'git checkout release'
-				withCredentials{
+				withCredentials([credentialsId: 'jenkins-ci-lab-deploy-key']){
 					bat 'git push origin release'
 				}
 			}
