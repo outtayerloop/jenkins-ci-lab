@@ -17,6 +17,7 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
+// Request to the back-end
 axios.get(`http://localhost:5000/`, { withCredentials: true })
     .then(res => {
       document.getElementById(`page-count`).innerText = res.data.pageCount
