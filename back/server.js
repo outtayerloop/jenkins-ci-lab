@@ -11,12 +11,12 @@ const PORT = 5000
 const HOST = `0.0.0.0`
 
 app.use(cors({
-    origin: 'http://localhost:3000'
+    origin: `http://localhost:3000`
 }))
 
 app.use(
     session({
-        secret: 'secret string',
+        secret: `secret string`,
         resave: true,
         saveUninitialized: true,
         cookie: {},
@@ -28,7 +28,7 @@ app.get('/', function(req, res){
     if(!req.session.pageCountByCurrentUserOrAnyNameYouWant)
         req.session.pageCountByCurrentUserOrAnyNameYouWant = 0
     req.session.pageCountByCurrentUserOrAnyNameYouWant++
-    res.set('Access-Control-Allow-Credentials', true)
+    res.set(`Access-Control-Allow-Credentials`, true)
     res.send({
         pageCount: req.session.pageCountByCurrentUserOrAnyNameYouWant
     })
