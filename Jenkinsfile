@@ -26,8 +26,6 @@ pipeline {
 			steps {
 				bat 'git checkout release'
 				bat 'git merge develop'
-				bat 'git config user.name "wiwiii"'
-				bat 'git config user.email "wiem.chouchane@efrei.net"'
 				withCredentials([gitUsernamePassword(credentialsId: 'jenkins-ci-lab-token', gitToolName: 'git-tool')]) {
 					bat 'git push -u origin release'
 				}
