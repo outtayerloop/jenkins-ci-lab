@@ -25,7 +25,9 @@ pipeline {
 		stage('Push to release'){
 			steps {
 				bat 'git checkout release'
-				bat 'git push origin release'
+				withCredentials{
+					bat 'git push origin release'
+				}
 			}
 		}
     }
