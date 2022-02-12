@@ -26,7 +26,7 @@ pipeline {
 			steps {
 				bat 'git checkout release'
 				bat 'git merge develop'
-				withCredentials([usernamePassword(credentialsId: 'jenkins-ci-lab-credentials')]) {
+				withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins-ci-lab-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 					bat 'git push origin release'
 				}
 			}
