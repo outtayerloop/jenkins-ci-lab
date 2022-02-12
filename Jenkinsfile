@@ -25,8 +25,7 @@ pipeline {
 		stage('Push to release'){
 			steps {
 				bat 'git checkout release'
-				withCredentials([[sshUserPrivateKey(credentialsId: 'jenkins-ci-lab-deploy-key',
-														keyFileVariable: 'JENKINS_CI_LAB_DEPLOY_KEY')]]) {
+				sshagent(credentials: ['jenkins-ci-lab-deploy-key']) {
 					bat 'git push origin release'
 				}
 			}
