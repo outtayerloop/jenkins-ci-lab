@@ -29,7 +29,7 @@ pipeline {
 				bat 'git config user.name "wiwiii"'
 				bat 'git config user.email "wiem.chouchane@efrei.net"'
 				withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'jenkins-ci-lab-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
-					bat 'git push origin release'
+					bat 'git push -u origin release'
 				}
 			}
 		}
