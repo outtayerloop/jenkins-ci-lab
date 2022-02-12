@@ -28,7 +28,7 @@ pipeline {
 				bat 'git merge develop'
 				bat 'git config user.name "wiwiii"'
 				bat 'git config user.email "wiem.chouchane@efrei.net"'
-				withCredentials([gitUsernamePassword(credentialsId: 'jenkins-ci-lab-credentials', gitToolName: 'git-tool')]) {
+				withCredentials([gitUsernamePassword(credentialsId: 'jenkins-ci-lab-deploy-key', gitToolName: 'git-tool')]) {
 					bat 'git push -u origin release'
 				}
 			}
