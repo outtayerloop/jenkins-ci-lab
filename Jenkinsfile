@@ -25,6 +25,7 @@ pipeline {
 		stage('Push to release'){
 			steps {
 				bat 'git checkout release'
+				bat 'git merge develop'
 				sshagent(credentials: ['jenkins-ci-lab-deploy-key']) {
 					bat 'git push origin release'
 				}
